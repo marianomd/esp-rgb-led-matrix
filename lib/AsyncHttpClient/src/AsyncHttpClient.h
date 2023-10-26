@@ -210,7 +210,7 @@ public:
 private:
 
     /** The process task stack size in bytes */
-    static const uint32_t       PROCESS_TASK_STACK_SIZE = 4096U;
+    static const uint32_t       PROCESS_TASK_STACK_SIZE = 8192U;
 
     /** The process task period in ms. */
     static const uint32_t       PROCESS_TASK_PERIOD     = 20U;
