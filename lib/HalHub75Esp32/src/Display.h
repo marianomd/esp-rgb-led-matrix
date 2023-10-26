@@ -126,7 +126,7 @@ class Display : public IDisplay {
      */
     uint16_t getWidth() const final
     {
-        return m_ledMatrix.getWidth();
+        return Board::LedMatrix::height;
     }
 
     /**
@@ -136,7 +136,7 @@ class Display : public IDisplay {
      */
     uint16_t getHeight() const final
     {
-        return m_ledMatrix.getHeight();
+        return Board::LedMatrix::height;
     }
 
     /**
@@ -148,6 +148,7 @@ class Display : public IDisplay {
      * @return Color in RGB888 format.
      */
     Color& getColor(int16_t x, int16_t y) final {
+        //return BLACK;
         return m_ledMatrix.getColor(x, y);
     }
 
@@ -160,10 +161,14 @@ class Display : public IDisplay {
      * @return Color in RGB888 format.
      */
     const Color& getColor(int16_t x, int16_t y) const final {
+        //return BLACK;
+        
         return m_ledMatrix.getColor(x, y);
     }
 
    private:
+   //Color BLACK = Color();
+
     HUB75_I2S_CFG::i2s_pins _pins = {R1_PIN, G1_PIN, B1_PIN, R2_PIN, G2_PIN, B2_PIN, A_PIN, B_PIN, C_PIN, D_PIN, E_PIN, LAT_PIN, OE_PIN, CLK_PIN};
     HUB75_I2S_CFG mxconfig{
         CONFIG_LED_MATRIX_WIDTH,   // Module width

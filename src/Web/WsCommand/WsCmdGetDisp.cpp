@@ -81,22 +81,35 @@ void WsCmdGetDisp::execute(AsyncWebSocket* server, AsyncWebSocketClient* client)
         uint32_t    index       = 0U;
         String      msg;
         IDisplay&   display     = Display::getInstance();
-        uint32_t    framebuffer[display.getWidth() * display.getHeight()];
+        //uint32_t    framebuffer[display.getWidth() * display.getHeight()];
         uint8_t     slotId      = SlotList::SLOT_ID_INVALID;
 
-        DisplayMgr::getInstance().getFBCopy(framebuffer, UTIL_ARRAY_NUM(framebuffer), &slotId);
+        //DisplayMgr::getInstance().getFBCopy(framebuffer, UTIL_ARRAY_NUM(framebuffer), &slotId);
+        // IDisplay&                   display = Display::getInstance();
+        // int16_t                     x       = 0;
+        // int16_t                     y       = 0;
+        // size_t                      index   = 0;
 
-        msg  = slotId;
-        msg += DELIMITER;
-        msg += display.getWidth();
-        msg += DELIMITER;
-        msg += display.getHeight();
+        /* Copy framebuffer after it is completely updated. */
+        // for(y = 0; y < display.getHeight(); ++y)
+        // {
+        //     for(x = 0; x < display.getWidth(); ++x)
+        //     {
+        //         fb[index] = display.getColor(x, y);
 
-        for(index = 0U; index <  UTIL_ARRAY_NUM(framebuffer); ++index)
-        {
-            msg += DELIMITER;
-            msg += Util::uint32ToHex(framebuffer[index]);
-        }
+        //     }
+        // }
+        // msg  = slotId;
+        // msg += DELIMITER;
+        // msg += display.getWidth();
+        // msg += DELIMITER;
+        // msg += display.getHeight();
+
+        // for(index = 0U; index <  UTIL_ARRAY_NUM(framebuffer); ++index)
+        // {
+        //     msg += DELIMITER;
+        //     msg += Util::uint32ToHex(framebuffer[index]);
+        // }
         
         sendPositiveResponse(server, client, msg);
     }

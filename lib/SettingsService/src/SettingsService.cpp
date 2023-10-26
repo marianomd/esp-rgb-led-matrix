@@ -182,7 +182,7 @@ static const char*      DEFAULT_WIFI_PASSPHRASE         = "";
 static const char*      DEFAULT_WIFI_AP_SSID            = "pixelix";
 
 /** Wifi access point network passphrase default value */
-static const char*      DEFAULT_WIFI_AP_PASSPHRASE      = "Luke, I am your father.";
+static const char*      DEFAULT_WIFI_AP_PASSPHRASE      = "12345678";
 
 /** Website login user account default value */
 static const char*      DEFAULT_WEB_LOGIN_USER          = "luke";
